@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "author": "Arduino Project",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 58.2, "left": -48.6, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -86.1,
+      "left": 263.4,
+      "attrs": { "humidity": "30", "temperature": "22.5" }
+    },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": -92, "left": -199.38, "attrs": {} },
+    {
+      "type": "wokwi-gas-sensor",
+      "id": "gas1",
+      "top": -102.9,
+      "left": -50.6,
+      "attrs": { "ppm": "0", "threshold": "4.4" }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 108.8,
+      "left": 346.4,
+      "attrs": { "lux": "500" }
+    },
+    { "type": "wokwi-buzzer", "id": "bz1", "top": 175.2, "left": -190.2, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": 288.2, "left": -57.6, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 227.2,
+      "left": 284,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "wokwi-servo", "id": "servo1", "top": -251.6, "left": 201.6, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 82.8,
+      "left": -188.2,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 15.8,
+      "left": -172.8,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -51.6,
+      "left": 368.6,
+      "attrs": { "color": "white" }
+    }
+  ],
+  "connections": [
+    [ "dht1:VCC", "uno:5V", "red", [] ],
+    [ "dht1:GND", "uno:GND.1", "black", [] ],
+    [ "dht1:SDA", "uno:2", "yellow", [] ],
+    [ "pir1:VCC", "uno:5V", "red", [] ],
+    [ "pir1:GND", "uno:GND.2", "black", [] ],
+    [ "pir1:OUT", "uno:7", "green", [] ],
+    [ "gas1:VCC", "uno:5V", "red", [] ],
+    [ "gas1:GND", "uno:GND.3", "black", [] ],
+    [ "gas1:AOUT", "uno:A0", "blue", [] ],
+    [ "ldr1:SIG", "uno:A1", "purple", [] ],
+    [ "ldr1:VCC", "uno:5V", "red", [] ],
+    [ "ldr1:GND", "uno:GND.3", "black", [] ],
+    [ "bz1:1", "uno:8", "orange", [] ],
+    [ "bz1:2", "uno:GND.3", "black", [] ],
+    [ "relay1:VCC", "uno:5V", "red", [] ],
+    [ "relay1:GND", "uno:GND.6", "black", [] ],
+    [ "relay1:IN", "uno:6", "green", [] ],
+    [ "lcd1:VCC", "uno:5V", "red", [] ],
+    [ "lcd1:GND", "uno:GND.7", "black", [] ],
+    [ "lcd1:SDA", "uno:A4", "cyan", [] ],
+    [ "lcd1:SCL", "uno:A5", "cyan", [] ],
+    [ "servo1:V+", "uno:5V", "red", [] ],
+    [ "servo1:GND", "uno:GND.1", "black", [] ],
+    [ "servo1:PWM", "uno:9", "green", [] ],
+    [ "led1:A", "uno:5", "green", [] ],
+    [ "led1:C", "uno:GND.2", "black", [] ],
+    [ "btn1:1.l", "uno:GND.3", "black", [] ],
+    [ "btn1:2.l", "uno:4", "green", [] ],
+    [ "ldr1:AO", "uno:A1", "green", [ "h0" ] ],
+    [ "ldr1:DO", "uno:5V", "green", [ "h0" ] ],
+    [ "led2:A", "uno:3", "green", [ "v0" ] ],
+    [ "led2:C", "uno:GND.3", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
